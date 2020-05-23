@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.framework.configurators.proxy;
 
 /**
  * @author Evgeny Borisov

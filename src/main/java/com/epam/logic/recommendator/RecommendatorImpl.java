@@ -1,4 +1,7 @@
-package com.epam;
+package com.epam.logic.recommendator;
+
+import com.epam.framework.core.InjectProperty;
+import com.epam.framework.core.Singleton;
 
 /**
  * @author Evgeny Borisov

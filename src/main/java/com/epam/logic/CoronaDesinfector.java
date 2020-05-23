@@ -1,4 +1,8 @@
-package com.epam;
+package com.epam.logic;
+
+import com.epam.framework.core.InjectByType;
+import com.epam.logic.announcer.Announcer;
+import com.epam.logic.policeman.Policeman;
 
 /**
  * @author Evgeny Borisov

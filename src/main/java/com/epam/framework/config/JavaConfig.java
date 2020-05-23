@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.framework.config;
 
 import lombok.Getter;
 import org.reflections.Reflections;
@@ -12,8 +12,13 @@ import java.util.Set;
 public class JavaConfig implements Config {
 
     @Getter
-    private Reflections scanner;
-    private Map<Class, Class> ifc2ImplClass;
+    private final Reflections scanner;
+
+    /**
+     * Defines which implementation of interface should be used
+     */
+    @Getter
+    private final Map<Class, Class> ifc2ImplClass;
 
     public JavaConfig(String packageToScan, Map<Class, Class> ifc2ImplClass) {
         this.ifc2ImplClass = ifc2ImplClass;
@@ -21,6 +26,7 @@ public class JavaConfig implements Config {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public <T> Class<? extends T> getImplClass(Class<T> ifc) {
         return ifc2ImplClass.computeIfAbsent(ifc, aClass -> {
             Set<Class<? extends T>> classes = scanner.getSubTypesOf(ifc);
@@ -30,7 +36,6 @@ public class JavaConfig implements Config {
 
             return classes.iterator().next();
         });
-
     }
 }
 

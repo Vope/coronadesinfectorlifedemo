@@ -1,4 +1,7 @@
-package com.epam;
+package com.epam.logic.policeman;
+
+import com.epam.framework.core.InjectByType;
+import com.epam.logic.recommendator.Recommendator;
 
 import javax.annotation.PostConstruct;
 
